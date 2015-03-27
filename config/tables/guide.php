@@ -1,63 +1,92 @@
 <?php
 
 return [
-	'title' => 'Model Title',               //used for UI
-	'model' => 'Model',                //Model name (namespaced model? sure! go ahead!)
-	'singular' => 'model',             //Singular and lowercase of model name
-  'has_media' => false,             //(Optional) Supports media? Set it to true
-  'use_form_columns' => true,        //true|false Split form fields in 2 columns?
-  'rules' => [                 //(Optional) Validation Rules
+	//used for UI
+	'title'	=> 'Model Title',
+	//Model name (namespaced model? sure! go ahead!)
+	'model'	=> 'Model',
+	//Singular and lowercase of model name
+	'singular' => 'model',
+	//(Optional) Supports media? Set it to true
+  'has_media' => false,
+  //true|false Split form fields in 2 columns?
+  'use_form_columns' => true,
+  //(Optional) Validation Rules
+  'rules'	=> [
     'fieldname' => 'rule1|rule2...{column_name}',
     /*...*/
   ],
-  'custom_actions' => [     //(Optional) Custom actions that appear next to edit and delete in List table
+  //(Optional) Custom actions that appear next to edit and delete in List table
+  'custom_actions' => [
     [
      'url' => '#',
      'label' => '',
-     'icon' => '',        //(Optional)
-     'class' => '',       //(Optional)
-     'id' => '',          //(Optional)
+     //(Optional)
+     'icon' => '',
+     //(Optional)
+     'class' => '',
+     //(Optional)
+     'id' => '',
      ]
   ],
   'actions' => [
-    'create' => [     //(Optional) If you remove it, the Create button will not render
+  	//(Optional) If you remove it, the Create button will not render
+    'create' => [
 			'url' => '',
       'label' => '',
-			'class' => '',       //(Optional)
-			'id' => ''           //(Optional)
+      //(Optional)
+			'class' => '',
+			//(Optional)
+			'id' => ''
     ],
-    'edit' => [       //(Optional) If you remove it, the Edit button will not render
+    //(Optional) If you remove it, the Edit button will not render
+    'edit' => [
       'url' => '',
       'label' => '',
-      'class' => '',       //(Optional)
-      'id' => ''           //(Optional)
+      //(Optional)
+      'class' => '',
+      //(Optional)
+      'id' => ''
     ],
-    'delete' => [     //(Optional) If you remove it, the Delete button will not render
+    //(Optional) If you remove it, the Delete button will not render
+    'delete' => [
       'url' => '',
       'label' => '',
-      'class' => '',       //(Optional)
-      'id' => ''           //(Optional)
+      //(Optional)
+      'class' => '',
+      //(Optional)
+      'id' => ''
     ]
   ],
   'columns' => [
     //The order the fields will be shown on all views is the one you type 'em in here
-    'column_name' => [                        //If type == 'fk' then use the Relationship method from your model
-      'type' => 'xxx',                        //One of pk, slug, text, textarea, password, wysiwyg, date, datetime, fk, image, bool, order, select, url, address, email, number
-      'label' => 'ColumnName',                 //UI use
+    
+    //If type == 'fk' then use the Relationship method from your model
+    'column_name' => [
+    	//One of pk, slug, text, textarea, password, wysiwyg, date, datetime, fk, image, bool, order, select, url, address, email, number
+      'type' => 'xxx',
+      'label' => 'ColumnName',
       'attributes' => [
         'inList' => [
-          'html_attribute' => 'value'         //Custom html attributes in List view
+        	//Custom html attributes in List view
+          'html_attribute' => 'value'
         ],
         'inForm' => [
-          'html_attribute' => 'value'         //Custom html attributes in Form views (create and edit)
+        	//Custom html attributes in Form views (create and edit)
+          'html_attribute' => 'value'
         ]
       ],
-      'relationship' => [                //(Optional) If type => 'fk'
-        'type' => 'laravel_style',            //Type of relationship (belongsTo|belongsToMany)
-        'fm' => 'EvenNamespaced\ForeignModel',//Name of model (supports namsspaces)
-        'fc' => 'foreign_column'              //Name of field on the foreign table to use
+      //(Optional) If type => 'fk'
+      'relationship' => [       
+      	//Type of relationship (belongsTo|belongsToMany)
+        'type' => 'laravel_style',
+        //Name of model (supports namsspaces)
+        'fm' => 'EvenNamespaced\ForeignModel',
+        //Name of field on the foreign table to use
+        'fc' => 'foreign_column'
       ],
-      'options' => [                     //(Optional) If type == 'select'
+      //(Optional) If type == 'select'
+      'options' => [
         'value1' => 'label1',
         'value2' => 'label2',
       ]
@@ -65,12 +94,12 @@ return [
     /*...*/
   ],
   'hideInList' => [
-    //list of fieldnames to hide in List view (table)
+    //list of column names to hide in List view (table)
   ],
   'hideInCreate' => [
-    //list of fieldnames to hide in Create view (form)
+    //list of column names to hide in Create view (form)
   ],
   'hideInEdit' => [
-    //list of fieldnames to hide in Edit view (form)
+    //list of column names to hide in Edit view (form)
   ]
 ];
