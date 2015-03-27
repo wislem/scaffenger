@@ -47,6 +47,18 @@ and add its ServiceProvider
 
 to your `/config/app.php` file
 
+Add
+```
+use Caffeinated\Shinobi\Traits\ShinobiTrait;
+```
+and
+```
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+
+	use Authenticatable, CanResetPassword, ShinobiTrait;
+```
+to your app/User.php model
+
 ### Step 2: Publish stuff
 
 ```bash
