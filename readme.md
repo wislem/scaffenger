@@ -47,7 +47,7 @@ and add its ServiceProvider
 
 to your `/config/app.php` file
 
-Add
+In your app/User.php model, add
 ```
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
 ```
@@ -57,7 +57,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	use Authenticatable, CanResetPassword, ShinobiTrait;
 ```
-to your app/User.php model
 
 ### Step 2: Publish stuff
 
@@ -86,7 +85,7 @@ php artisan vendor:publish --tag=scaffenger --force
 ```
 * Assets under
 ```
-/public/packages/scaffenger
+/public/vendor/wislem/scaffenger
 ```
 
 
