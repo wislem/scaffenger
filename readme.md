@@ -53,13 +53,20 @@ php artisan vendor:publish --tag=scaffenger --force
 * Config files will be
 ```
 /config/scaffenger/config.php
+/config/scaffenger/tables/*.php
 ```
-and
-```
-/config/scaffenger/tables/*
-```
+
 * Migration files
+```
+	/database/migrations/2015_03_22_065314_create_tests_table.php
+	/database/migrations/2015_03_24_113432_create_media_table.php
+```
 * Seed files
+```
+	/database/seeds/PermissionTableSeeder.php
+	/database/seeds/RoleTableSeeder.php
+	/database/seeds/UserTableSeeder.php
+```
 * Assets under
 ```
 /public/packages/scaffenger
