@@ -142,6 +142,20 @@ Navigate to /admin and play around.
 
 ## What now?
 
-Create your db table config files inside /config/scaffenger/tables based on /config/scaffenger/tables/guide.php
-
-E.g. /config/scaffenger/tables/pages.php and then you can navigate to /admin/list/pages to manage your db table through the UI.
+Create your db table config files inside 
+```
+/config/scaffenger/tables
+```
+based on 
+```
+/config/scaffenger/tables/guide.php
+```
+E.g. 
+```
+/config/scaffenger/tables/pages.php
+```
+and then you can navigate to 
+```
+/admin/list/pages
+```
+to manage your db table through the UI.
