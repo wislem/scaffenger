@@ -18,8 +18,6 @@ class ScaffengerServiceProvider extends ServiceProvider
    */
   public function register()
   {
-    require __DIR__ . '/../vendor/autoload.php';
-
     //Share with app
     $this->app['scaffenger'] = $this->app->share(function () {
       return true;
