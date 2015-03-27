@@ -1,47 +1,135 @@
-## Scaffenger for Laravel 5
+Scaffenger for Laravel 5
+========================
 
-Installation:
+A scaffolding generator for any database setup ;)
 
-- composer require wislem/scaffenger
+It has its own UI (can be swapped with any custom made template).
 
-- php artisan vendor:publish --tag=scaffenger --force
+Supports a total of 12 field types including:
+* pk
+* slug
+* text
+* textarea
+* password
+* wysiwyg
+* date
+* datetime
+* fk
+* image
+* bool
+* order
+* select
+* url
+* address
+* email
+* number
 
-- php artisan migrate
+## Installation steps
 
-- php artisan db:seed
+### Step 1: Install package
+
+Add the package inside your composer.json requirements
+
+```bash
+composer require wislem/scaffenger
+```
+
+and add its ServiceProvider
+
+```
+'Wislem\Scaffenger\ScaffengerServiceProvider',
+```
+
+to your `/config/app.php` file
+
+### Step 2: Publish stuff
+
+```bash
+php artisan vendor:publish --tag=scaffenger --force
+```
+
+#### This will do the following:
+
+* Config files will be
+```
+/config/scaffenger/config.php
+```
+and
+```
+/config/scaffenger/tables/*
+```
+* Migration files
+* Seed files
+* Assets under
+```
+/public/packages/scaffenger
+```
 
 
-This will result in these tables in you db:
+### Step 3: Run migrations and seeds
 
-1. migrations, users, password_resets (default Laravel migration)
-2. permissions, roles, permission_role, role_user (caffeinated/shinobi migrations)
+Add seeds to your main `DatabaseSeeder.php` class
 
-Scaffenger's seed will create 3 Roles:
+```
+<?php
 
-1. Administrator (admin)
-2. Moderator (mod)
-3. Member (member)
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
-1 Permission:
+class DatabaseSeeder extends Seeder {
 
-1. access.admin
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Model::unguard();
 
-and finally 1 administrator user
+    $this->call('PermissionTableSeeder');
+    $this->call('RoleTableSeeder');
+    $this->call('UserTableSeeder');
+	}
 
-Email: admin@scaffenger.com
-Password: admin
+}
+```
 
-Scaffenger's config files will be /config/scaffenger/config.php and /config/scaffenger/tables/*
+Run
 
-=========
+```
+php artisan migrate
+```
 
-You can now navigate to /admin, login and play around.
+and
 
-=========
+```
+php artisan db:seed
+```
+
+#### Result of the above actions
+
+* DB tables:
+	`users`, `password_resets` (default Laravel migration)
+	`permissions`, `roles`, `permission_role`, `role_user` (Caffeinated\Shinobi migrations)
+	`media`, `tests` (Scaffenger's migrations)
+* Seeds
+	* Roles
+		* Administrator
+		* Moderator
+		* Member
+	* Permission
+		* access.admin
+	* Users
+		* admin@scaffenger.com:admin
+
+## Step 4
+
+Navigate to /admin and play around.
+
+
+## What now?
 
 Create your db table config files inside /config/scaffenger/tables based on /config/scaffenger/tables/guide.php
 
 E.g. /config/scaffenger/tables/pages.php and then you can navigate to /admin/list/pages to manage your db table through the UI.
-
-=========
-
