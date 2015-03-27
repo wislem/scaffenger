@@ -1,7 +1,7 @@
 <?php
 
 return [
-	//used for UI
+	//used for UI 
 	'title'	=> 'Model Title',
 	//Model name (namespaced model? sure! go ahead!)
 	'model'	=> 'Model',
