@@ -48,7 +48,7 @@ class ScaffengerServiceProvider extends ServiceProvider
       __DIR__.'/../config/tables' => config_path('scaffenger/tables'),
       __DIR__.'/../database/seeds' => app_path().'/../database/seeds',
       __DIR__.'/../database/migrations' => app_path().'/../database/migrations',
-      __DIR__.'/../public' => public_path().'/packages/wislem/scaffenger',
+      __DIR__.'/../public' => public_path().'/vendor/wislem/scaffenger',
       //__DIR__.'/../resources/views' => app_path().'/../resources/views/scaffenger'
     ], 'scaffenger');
 

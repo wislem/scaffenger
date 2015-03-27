@@ -484,7 +484,7 @@ class ScaffengerController extends Controller {
 
   public function postFileUpload(Request $request)
   {
-    $response = ['filelink' => '', 'multiple' => []];
+    $response = ['error' => 0, 'filelink' => '', 'multiple' => []];
 
     //Make sure folders exist
     $dir = Config::get('scaffenger.config.uploads_folder');
@@ -500,9 +500,9 @@ class ScaffengerController extends Controller {
         $filename = Str::slugify($filename).'.'.$extension;;
         $file->move($dir, $filename);
 
-        $response['filelink'] = str_replace(public_path(), '', $dir).'/'.$filename;
+        $response['filelink'] = Config::get('app.url').str_replace(public_path(), '', $dir).'/'.$filename;
       } catch (Exception $e) {
-        echo $e->getMessage();
+        $response['error'] = 1;
       }
     }
 

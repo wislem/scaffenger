@@ -4,6 +4,42 @@
  *  Description: Custom javascript code used in Forms Components page
  */
 
+function sendFile(file, editor, welEditable) {
+  data = new FormData();
+  data.append("dzfile", file);
+  data.append("_token", _token);
+  $.ajax({
+    data: data,
+    type: 'POST',
+    xhr: function() {
+      $('progress.upload').show();
+      var myXhr = $.ajaxSettings.xhr();
+      if (myXhr.upload) myXhr.upload.addEventListener('progress',progressHandlingFunction, false);
+      return myXhr;
+    },
+    url: baseUrl + '/admin/file-upload',
+    cache: false,
+    contentType: false,
+    processData: false
+  }).done(function(response){
+    if(response.error == 1) {
+      alert(response.msg);
+    }else {
+      editor.insertImage(welEditable, response.filelink);
+    }
+  });
+}
+
+function progressHandlingFunction(e){
+  if(e.lengthComputable){
+    $('progress.upload').attr({value:e.loaded, max:e.total});
+    // reset progress on complete
+    if (e.loaded == e.total) {
+      $('progress.upload').attr('value','0.0').hide();
+    }
+  }
+}
+
 var FormsComponents = function() {
 
   return {
@@ -15,12 +51,21 @@ var FormsComponents = function() {
         $('#'+$(this).attr('data-id')).removeAttr('readonly').focus();
       });
 
-      $('.wysiwyg').redactor({
-        minHeight: 200,
-        buttonSource: true,
-        imageUpload: baseUrl + '/admin/file-upload',
-        fileUpload: baseUrl + '/admin/file-upload',
-        plugins: ['table', 'video']
+      $('.wysiwyg').summernote({
+        height:400,
+        disableDragAndDrop: true,
+        toolbar: [
+          //[groupname, [button list]]
+          ['style', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+          ['font', ['fontname']],
+          ['fontsize', ['fontsize']],
+          ['layout', ['ul', 'ol', 'paragraph']],
+          ['insert', ['hr', 'link', 'picture', 'video', 'table']],
+          ['misc', ['undo', 'redo', 'fullscreen', 'codeview']]
+        ],
+        onImageUpload: function(files, editor, welEditable) {
+          sendFile(files[0], editor, welEditable);
+        }
       });
 
       $('.chosen-select').chosen();

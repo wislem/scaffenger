@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-md-4">
-    <label>
+    <label>sc
       <ul class="list-inline list-unstyled">
       @if(isset($config['actions']['delete']))
         <li>
@@ -190,6 +190,6 @@
 @stop
 
 @section('js')
-  <script src="{{asset('packages/wislem/scaffenger/js/pages/uiTables.js')}}"></script>
+  <script src="{{asset('vendor/wislem/scaffenger/js/pages/uiTables.js')}}"></script>
   <script>$(function(){ UiTables.init(); });</script>
 @stop

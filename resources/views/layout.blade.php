@@ -9,24 +9,25 @@
     <meta name="_token" content="{{csrf_token()}}">
     <title>{{Config::get('scaffenger.config.title')}}</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{!! asset('packages/wislem/scaffenger/css/bootstrap.css') !!}" rel="stylesheet">
+    <link href="{!! asset('vendor/wislem/scaffenger/css/bootstrap.css') !!}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{!! asset('packages/wislem/scaffenger/vendor/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
-    <link href="{!! asset('packages/wislem/scaffenger/vendor/redactor/redactor.css') !!}" rel="stylesheet">
-    <link href="{{ asset('packages/wislem/scaffenger/css/plugins.css') }}" rel="stylesheet"/>
-    <link href="{!! asset('packages/wislem/scaffenger/css/app.css') !!}" rel="stylesheet">
+    <link href="{!! asset('vendor/wislem/scaffenger/vendor/font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('vendor/wislem/scaffenger/vendor/summernote/summernote.css') !!}" rel="stylesheet">
+    <link href="{!! asset('vendor/wislem/scaffenger/vendor/summernote/summernote-bs3.css') !!}" rel="stylesheet">
+    <link href="{{ asset('vendor/wislem/scaffenger/css/plugins.css') }}" rel="stylesheet"/>
+    <link href="{!! asset('vendor/wislem/scaffenger/css/app.css') !!}" rel="stylesheet">
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="{{asset('packages/wislem/scaffenger/img/favicon.png')}}">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon57.png')}}" sizes="57x57">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon72.png')}}" sizes="72x72">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon76.png')}}" sizes="76x76">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon114.png')}}" sizes="114x114">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon120.png')}}" sizes="120x120">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon144.png')}}" sizes="144x144">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon152.png')}}" sizes="152x152">
-    <link rel="apple-touch-icon" href="{{asset('packages/wislem/scaffenger/img/icon180.png')}}" sizes="180x180">
+    <link rel="shortcut icon" href="{{asset('vendor/wislem/scaffenger/img/favicon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon57.png')}}" sizes="57x57">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon72.png')}}" sizes="72x72">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon76.png')}}" sizes="76x76">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon114.png')}}" sizes="114x114">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon120.png')}}" sizes="120x120">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon144.png')}}" sizes="144x144">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon152.png')}}" sizes="152x152">
+    <link rel="apple-touch-icon" href="{{asset('vendor/wislem/scaffenger/img/icon180.png')}}" sizes="180x180">
     <!-- END Icons -->
 
     @yield('css')
@@ -58,7 +59,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{!! asset('packages/wislem/scaffenger/js/jquery.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/js/jquery.js') !!}"></script>
 
     <script>
     var baseUrl = '{{Config::get('app.url')}}';
@@ -68,10 +69,12 @@
     </script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{!! asset('packages/wislem/scaffenger/js/bootstrap.min.js') !!}"></script>
-    <script src="{!! asset('packages/wislem/scaffenger/vendor/redactor/redactor.min.js') !!}"></script>
-    <script src="{!! asset('packages/wislem/scaffenger/js/plugins.js') !!}"></script>
-    <script src="{!! asset('packages/wislem/scaffenger/js/app.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/js/bootstrap.min.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/vendor/summernote/summernote.min.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/vendor/summernote/summernote-ext-video.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/vendor/summernote/summernote-ext-fontstyle.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/js/plugins.js') !!}"></script>
+    <script src="{!! asset('vendor/wislem/scaffenger/js/app.js') !!}"></script>
     @yield('js')
   </body>
 </html>

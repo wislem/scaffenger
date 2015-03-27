@@ -76,6 +76,6 @@
 <script>
 var preload_media = false;
 </script>
-<script src="{{ asset('packages/wislem/scaffenger/js/pages/formsComponents.js') }}"></script>
+<script src="{{ asset('vendor/wislem/scaffenger/js/pages/formsComponents.js') }}"></script>
 <script>$(function(){ FormsComponents.init(); });</script>
 @stop

@@ -95,6 +95,6 @@ if(mockFiles.length > 0) {
 }
 </script>
 @endif
-<script src="{{ asset('packages/wislem/scaffenger/js/pages/formsComponents.js') }}"></script>
+<script src="{{ asset('vendor/wislem/scaffenger/js/pages/formsComponents.js') }}"></script>
 <script>$(function(){ FormsComponents.init(); });</script>
 @stop
