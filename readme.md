@@ -5,24 +5,29 @@ A scaffolding generator for any database setup ;)
 
 It has its own UI (can be swapped with any custom made template).
 
-Supports a total of 12 field types including:
-* pk
-* slug
-* text
-* textarea
-* password
-* wysiwyg
-* date
-* datetime
-* fk
-* image
-* bool
-* order
-* select
-* url
-* address
-* email
-* number
+Supports a total of 17 column types including:
+
+Column type  |  Description
+:------------|:------------
+`pk` | The primary key of the table (usually `id`)
+`slug` | A varchar that gets slugified by the column with name `title` and type `text`
+`text` | Plain text
+`textarea` | Plain textarea
+`password` | A password column (has several functionalities for changing it or not preloading its value etc.)
+`wysiwyg` | It's a textarea marked as a wysiwyg along with the proper css class to load your preferred js editor (I'm using summernote here)
+`date` | A date field that gets formatted according to your needs and shows a datepicker in forms
+`datetime` | See `date` plus time support
+`fk` | If your table has relationships, then this type is for you
+`image` | Using dropzone.js to handle this on forms, shows thumbnail with lightbox in list view
+`file` | `TODO`
+`bool` | A 0|1 column
+`order` | input[type="number"] in forms and can be updated in the list view on the fly
+`select` | A set of custom selections (can be anything in your db table -- enum, tinyint... w/e)
+`url` | Text column (input[type="url"] in forms)
+`number` | Int column (input[type="number"] in forms)
+`email` | Email column (input[type="email"] in forms)
+`address` | `TODO`
+
 
 ## Installation steps
 
