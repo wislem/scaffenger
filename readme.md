@@ -75,7 +75,7 @@ php artisan vendor:publish --tag=scaffenger --force
 
 Add seeds to your main `DatabaseSeeder` class
 
-```
+```php
 <?php
 
 use Illuminate\Database\Seeder;
