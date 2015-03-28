@@ -33,65 +33,47 @@ Column type  |  Description
 
 ### Step 1: Install package
 
-Add the package inside your composer.json requirements
+Add the package inside your composer.json requirements:
 
 ```bash
 composer require wislem/scaffenger
 ```
 
-and add its ServiceProvider
+Add the ServiceProvider to your `config/app.php` file:
 
-```
+```php
 'Wislem\Scaffenger\ScaffengerServiceProvider',
 ```
 
-to your `/config/app.php` file
+In the User class, add the ShinobiTrait:
 
-In your app/User.php model, add
-```
+```php
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
-```
-and
-```
+
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword, ShinobiTrait;
+	
+	// ...
+}
 ```
 
-### Step 2: Publish stuff
+### Step 2: Publish
 
 ```bash
 php artisan vendor:publish --tag=scaffenger --force
 ```
 
-#### This will do the following:
+#### This will publish the following:
 
-* Config files will be
-```
-/config/scaffenger/config.php
-/config/scaffenger/tables/*.php
-```
-
-* Migration files
-```
-	/database/migrations/2015_03_22_065314_create_tests_table.php
-	/database/migrations/2015_03_24_113432_create_media_table.php
-```
-* Seed files
-```
-	/database/seeds/PermissionTableSeeder.php
-	/database/seeds/RoleTableSeeder.php
-	/database/seeds/UserTableSeeder.php
-```
-* Assets under
-```
-/public/vendor/wislem/scaffenger
-```
-
+* Config files
+* Migrations
+* Seeds
+* Assets
 
 ### Step 3: Run migrations and seeds
 
-Add seeds to your main `DatabaseSeeder.php` class
+Add seeds to your main `DatabaseSeeder` class
 
 ```
 <?php
@@ -109,24 +91,19 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-
-    $this->call('PermissionTableSeeder');
-    $this->call('RoleTableSeeder');
-    $this->call('UserTableSeeder');
+		
+		$this->call('PermissionTableSeeder');
+		$this->call('RoleTableSeeder');
+		$this->call('UserTableSeeder');
 	}
 
 }
 ```
 
-Run
+Migrate and seed:
 
-```
+```bash
 php artisan migrate
-```
-
-and
-
-```
 php artisan db:seed
 ```
 
