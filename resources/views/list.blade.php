@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-md-4">
-    <label>sc
+    <label>
       <ul class="list-inline list-unstyled">
       @if(isset($config['actions']['delete']))
         <li>

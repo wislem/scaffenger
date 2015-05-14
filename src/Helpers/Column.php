@@ -7,52 +7,54 @@ class Column {
   public static function toList($object, $table = '', $column = '')
   {
     //Get the column's configuration
-  $column_config = Config::get('scaffenger.tables.'.$table.'.columns.'.$column);
+    $column_config = Config::get('scaffenger.tables.'.$table.'.columns.'.$column);
 
     $td_attributes = isset($column_config['attributes']['inList']) ? $column_config['attributes']['inList'] : null;
 
-    $listHtml = new ListHtml($column_config, $td_attributes);
+    $listHtml = new ListHtml($column, $object->$column, $column_config, $td_attributes);
+
+    $column_html = '';
 
     switch($column_config['type']) {
       case 'fk':
         switch($column_config['relationship']['type']) {
           case 'belongsTo':
-            $column_html = $listHtml->text($object->$column);
+            $column_html = $listHtml->text();
             break;
 
           case 'belongsToMany':
-            $column_html = $listHtml->belongsToMany($object, $column);
+            $column_html = $listHtml->belongsToMany($object);
             break;
         }
         break;
 
       case 'textarea':
       case 'wysiwyg':
-      $column_html = $listHtml->textarea($object->$column);
+      $column_html = $listHtml->textarea();
         break;
 
       case 'image':
-        $column_html = $listHtml->image($object->$column);
+        $column_html = $listHtml->image();
         break;
 
       case 'bool':
-        $column_html = $listHtml->bool($object, $table, $column);
+        $column_html = $listHtml->bool($object, $table);
         break;
 
       case 'order':
-        $column_html = $listHtml->order($object, $table, $column);
+        $column_html = $listHtml->order($object, $table);
       break;
 
       case 'select':
-        $column_html = $listHtml->select($object->$column);
+        $column_html = $listHtml->select();
       break;
 
       case 'url':
-        $column_html = $listHtml->url($object->$column);
+        $column_html = $listHtml->url();
        break;
 
       default:
-        $column_html = $listHtml->text($object->$column);
+        $column_html = $listHtml->text();
         break;
     }
 

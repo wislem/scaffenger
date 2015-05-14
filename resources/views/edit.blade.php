@@ -79,9 +79,9 @@
 @stop
 
 @section('js')
-@if(isset($config['has_media']))
 <script>
 var preload_media = false;
+@if($config['has_media'])
 var mockFiles = [];
 <?php $media_rel_func = Config::get('scaffenger.config.media_rel_func'); ?>
 @foreach($object->$media_rel_func()->get() as $medium)
@@ -93,8 +93,9 @@ var mockFiles = [];
 if(mockFiles.length > 0) {
 	preload_media = true;
 }
-</script>
 @endif
+</script>
+
 <script src="{{ asset('vendor/wislem/scaffenger/js/pages/formsComponents.js') }}"></script>
 <script>$(function(){ FormsComponents.init(); });</script>
 @stop

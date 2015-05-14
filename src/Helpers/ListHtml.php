@@ -11,9 +11,14 @@ class ListHtml {
 
   protected $column_html;
   protected $column_config;
+  protected $column;
+  protected $value;
 
-  public function __construct($column_config = null, $td_attributes = '') {
+  public function __construct($column = '', $value = '', $column_config = null, $td_attributes = '') {
     $this->column_config = $column_config;
+
+    $this->column = $column;
+    $this->value = $value;
 
     $this->column_html = '<td';
     if($td_attributes) {
@@ -24,20 +29,20 @@ class ListHtml {
     $this->column_html .= '>'.PHP_EOL;
   }
 
-  public function text($value = '')
+  public function text()
   {
-    $this->column_html .= $value.PHP_EOL;
+    $this->column_html .= $this->value.PHP_EOL;
     $this->column_html .= '</td>'.PHP_EOL;
 
     return $this->column_html;
   }
 
-  public function belongsTo($value = '')
+  public function belongsTo()
   {
     $fc = $this->column_config['relationship']['fc'];
     $fm = $this->column_config['relationship']['fm'];
 
-    $parent_object = $fm::select('id', $fc)->where('id', '=', $value)->first();
+    $parent_object = $fm::select('id', $fc)->where('id', '=', $this->value)->first();
 
     $this->column_html .= $parent_object->$ff.PHP_EOL;
     $this->column_html .= '</td>'.PHP_EOL;
@@ -45,8 +50,10 @@ class ListHtml {
     return $this->column_html;
   }
 
-  public function belongsToMany($object = null, $column = '')
+  public function belongsToMany($object = null)
   {
+    $column = $this->column;
+
     $fc = $this->column_config['relationship']['fc'];
 
     $parent_objects = $object->$column()->orderBy($fc, 'ASC')->lists($fc);
@@ -59,30 +66,32 @@ class ListHtml {
     return $this->column_html;
   }
 
-  public function textarea($value = '')
+  public function textarea()
   {
-    $this->column_html .= Str::limit($value, 50).PHP_EOL;
+    $this->column_html .= Str::limit($this->value, 50).PHP_EOL;
     $this->column_html .= '</td>'.PHP_EOL;
 
     return $this->column_html;
   }
 
 
-  public function image($value = '')
+  public function image()
   {
-    if($value)
-      $this->column_html .= '<a href="'.Config::get('app.url').$value.'" data-toggle="lightbox-image"><img src="'.Image::url(Config::get('app.url').$value, null, 40).'"></a>'.PHP_EOL;
+    if($this->value)
+      $this->column_html .= '<a href="'.Config::get('app.url').$this->value.'" data-toggle="lightbox-image"><img src="'.Image::url(Config::get('app.url').$this->value, null, 40).'"></a>'.PHP_EOL;
 
     $this->column_html .= '</td>'.PHP_EOL;
 
     return $this->column_html;
   }
 
-  public function bool($object = null, $table = '', $column = '')
+  public function bool($object = null, $table = '')
   {
-    $checked = ($object->$column) ? true : false;
+    $column = $this->column;
 
-    $this->column_html .= '<a href="#" title="Toggle state" class="update_value" data-id="'.$table.'-'.$object->id.'-'.$column.'" data-value="'.$object->$column.'">';
+    $checked = ($this->value) ? true : false;
+
+    $this->column_html .= '<a href="#" title="Toggle state" class="update_value" data-id="'.$table.'-'.$object->id.'-'.$this->column.'" data-value="'.$this->value.'">';
     if($checked) {
       $this->column_html .= '<i class="fa fa-fw fa-circle text-success"></i>'.PHP_EOL;
     }else {
@@ -95,18 +104,18 @@ class ListHtml {
     return $this->column_html;
   }
 
-  public function order($object = null, $table = '', $column = '')
+  public function order($object = null, $table = '')
   {
-    $this->column_html .= '<input class="form-control text-center update_value" style="width:60px;" type="text" value="'.$object->$column.'" data-id="'.$table.'-'.$object->id.'-'.$column.'" />'.PHP_EOL;
+    $this->column_html .= '<input class="form-control text-center update_value" style="width:60px;" type="text" value="'.$this->value.'" data-id="'.$table.'-'.$object->id.'-'.$this->column.'" />'.PHP_EOL;
     $this->column_html .= '</td>'.PHP_EOL;
 
     return $this->column_html;
   }
 
-  public function select($value = '')
+  public function select()
   {
-    if(isset($this->column_config['options'][$value])) {
-      $this->column_html .= $this->column_config['options'][$value] . PHP_EOL;
+    if(isset($this->column_config['options'][$this->value])) {
+      $this->column_html .= $this->column_config['options'][$this->value] . PHP_EOL;
     }else {
       $this->column_html .= '---'.PHP_EOL;
     }
@@ -116,9 +125,9 @@ class ListHtml {
     return $this->column_html;
   }
 
-  public function url($value = '')
+  public function url()
   {
-    $this->column_html .= '<a href="'.$value.'" target="_blank">'.$value.'</a>'.PHP_EOL;
+    $this->column_html .= '<a href="'.$this->value.'" target="_blank">'.$this->value.'</a>'.PHP_EOL;
     $this->column_html .= '</td>'.PHP_EOL;
 
     return $this->column_html;

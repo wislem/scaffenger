@@ -39,7 +39,9 @@ class ScaffengerServiceProvider extends ServiceProvider
 
     //Publish views
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffenger');
+
     //Seed classes (add them to your app's DatabaseSeeder class
+
     //Config files
     $this->publishes([
       __DIR__.'/../config/config.php' => config_path('scaffenger/config.php'),

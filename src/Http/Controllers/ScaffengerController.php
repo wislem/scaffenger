@@ -268,7 +268,21 @@ class ScaffengerController extends Controller {
 
     $config = Config::get('scaffenger.tables.'.$table);
 
-    $object = $config['model']::find($id);
+    // If table has relationships, eager load them
+    $eagerload = '';
+    foreach($config['columns'] as $column => $data) {
+      if($data['type'] == 'fk') {
+        $eagerload .= $column.',';
+      }
+    }
+
+    $eagerload = substr($eagerload, 0, -1);
+
+    if(!$eagerload) {
+      $object = $config['model']::find($id);
+    }else {
+      $object = $config['model']::with($eagerload)->find($id);
+    }
 
     $numOfProperties = 0;
     if($config['use_form_columns']) {
