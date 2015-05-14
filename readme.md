@@ -147,3 +147,8 @@ and then you can navigate to
 /admin/list/pages
 ```
 to manage your db table through the UI.
+
+### Don't forget to add your newly created scaffold to the menu
+```
+/config/scaffenger/config.php
+```
