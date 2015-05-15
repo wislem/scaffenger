@@ -4,6 +4,7 @@ return [
   'title' => 'Roles',               //used for UI
   'model' => 'Caffeinated\Shinobi\Models\Role',                //Model name
   'singular' => 'role',             //Singular and lowercase of model name
+  'has_media' => false,
   'use_form_columns' => true,        //true|false Split form fields in 2 columns?
   'rules' => [
     'name' => 'required|unique:roles,name,{id}',
