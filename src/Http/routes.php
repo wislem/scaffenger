@@ -1,6 +1,6 @@
 <?php
 /** Scaffenger Routes **/
 Route::controllers([
-    'admin/custom' => 'Wislem\Scaffenger\Http\Controllers\CustomController',
+    'admin/custom' => Config::get('scaffenger.custom_controller'),
     'admin' => 'Wislem\Scaffenger\Http\Controllers\ScaffengerController'
 ]);
