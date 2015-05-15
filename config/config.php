@@ -22,6 +22,7 @@ return [
   'datetimepicker_datetime_format' => 'YYYY-MM-DD HH:mm:ss', //for datetimepicker to go along with your date accessors (if any)
   'form_left_column_types' => ['slug', 'text', 'textarea', 'wysiwyg', 'number'],
   'form_right_column_types' => ['select', 'image', 'file', 'email', 'password', 'date', 'datetime', 'fk', 'bool', 'order', 'url', 'address'],
+  'custom_controller' => 'Wislem\Scaffenger\Http\Controllers\CustomController'
   'media_model' => 'Wislem\Scaffenger\Models\Media',
   'media_rel_func' => 'media',
   'uploads_folder' => public_path().'/uploads/scaffenger',
