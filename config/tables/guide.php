@@ -1,10 +1,10 @@
 <?php
 
 return [
-	'title' => 'Model Title',               //used for UI
-	'model' => 'Model',                //Model name (namespaced model? sure! go ahead!)
-	'singular' => 'model',             //Singular and lowercase of model name
-  'has_media' => false,             //(Optional) Supports media? Set it to true
+  'title' => 'Model Title',               //used for UI
+  'model' => 'Model',                //Model name (namespaced model? sure! go ahead!)
+  'singular' => 'model',             //Singular and lowercase of model name
+  'has_media' => false,             //Supports media? Set it to true
   'use_form_columns' => true,        //true|false Split form fields in 2 columns?
   'rules' => [                 //(Optional) Validation Rules
     'fieldname' => 'rule1|rule2...{column_name}',
