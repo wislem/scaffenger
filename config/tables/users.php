@@ -7,8 +7,7 @@ return [
   'has_media' => false,
   'use_form_columns' => false,        //true|false Split form fields in 2 columns?
   'rules' => [
-    'username' => 'required|unique:users,username,{id}',
-    'email' => 'required|email|unique:users,email,{id}',
+    'email' => 'required|email|unique:users,email,{id}'
   ],
   'actions' => [
     'create' => [],
