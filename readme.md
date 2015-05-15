@@ -152,3 +152,25 @@ to manage your db table through the UI.
 ```
 /config/scaffenger/config.php
 ```
+
+### Set your own custom controller for Scaffenger's custom actions like so:
+Create your custom controller in your `app/Http/Controllers`
+```php
+<?php namespace App\Http\Controllers;
+
+class CustomScaffengerController extends Controller {
+
+  public function __construct()
+  {
+    $this->middleware('scaffenger.auth');
+  }
+
+  public function yourCustomAction(){
+    //
+  }
+
+}
+```
+
+and set the route in `/config/scaffenger/config.php`
+
