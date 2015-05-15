@@ -4,6 +4,7 @@ return [
   'title' => 'Users',               //used for UI
   'model' => 'App\User',            //Model name
   'singular' => 'user',             //Singular and lowercase of model name
+  'has_media' => false,
   'use_form_columns' => false,        //true|false Split form fields in 2 columns?
   'rules' => [
     'username' => 'required|unique:users,username,{id}',
