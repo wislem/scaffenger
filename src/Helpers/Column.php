@@ -74,61 +74,61 @@ class Column
             case 'fk':
                 switch ($column_config['relationship']['type']) {
                     case 'belongsTo':
-                        $column_html = $formHtml->belongsTo($column);
+                        $column_html = $formHtml->belongsTo();
                         break;
 
                     case 'belongsToMany':
-                        $column_html = $formHtml->belongsToMany($column);
+                        $column_html = $formHtml->belongsToMany(Config::get('scaffenger.tables.' . $table . '.model'));
                         break;
                 }
                 break;
 
             case 'image':
-                $column_html = $formHtml->image($column, Config::get('scaffenger.tables.' . $table . '.model'), \Form::getValueAttribute('id'));
+                $column_html = $formHtml->image(Config::get('scaffenger.tables.' . $table . '.model'), \Form::getValueAttribute('id'));
                 break;
 
             case 'slug':
-                $column_html = $formHtml->slug($column);
+                $column_html = $formHtml->slug();
                 break;
 
             case 'textarea':
-                $column_html = $formHtml->textarea($column);
+                $column_html = $formHtml->textarea();
                 break;
 
             case 'password':
-                $column_html = $formHtml->password($column);
+                $column_html = $formHtml->password();
                 break;
 
             case 'select':
-                $column_html = $formHtml->select($column);
+                $column_html = $formHtml->select();
                 break;
 
             case 'order':
-                $column_html = $formHtml->order($column, Config::get('scaffenger.tables.' . $table . '.model'));
+                $column_html = $formHtml->order(Config::get('scaffenger.tables.' . $table . '.model'));
                 break;
 
             case 'bool':
-                $column_html = $formHtml->bool($column);
+                $column_html = $formHtml->bool();
                 break;
 
             case 'email':
-                $column_html = $formHtml->email($column);
+                $column_html = $formHtml->email();
                 break;
 
             case 'url':
-                $column_html = $formHtml->url($column);
+                $column_html = $formHtml->url();
                 break;
 
             case 'address':
-                $column_html = $formHtml->address($column);
+                $column_html = $formHtml->address();
                 break;
 
             case 'hidden':
-                $column_html = $formHtml->hidden($column);
+                $column_html = $formHtml->hidden();
                 break;
 
             default: //text, image,
-                $column_html = $formHtml->text($column);
+                $column_html = $formHtml->text();
                 break;
         }
 

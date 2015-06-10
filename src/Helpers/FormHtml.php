@@ -61,7 +61,7 @@ class FormHtml
         return $this->column_html;
     }
 
-    public function belongsToMany()
+    public function belongsToMany($model = '')
     {
         $has_error = ($this->errors and $this->errors->has($this->column)) ? true : false;
 
@@ -70,11 +70,13 @@ class FormHtml
 
         $parent_objects = $fm::orderBy($fc, 'ASC')->lists($fc, 'id');
 
+        $selected = $model::$this->column()->lists('id')->all();
+
         $this->html_attributes += ['multiple' => ''];
 
         $this->column_html = '<div class="form-group' . ($has_error ? ' has-error' : '') . '">' . PHP_EOL;
         $this->column_html .= Form::label($this->column, $this->column_config['label']) . PHP_EOL;
-        $this->column_html .= Form::select($this->column . '[]', ['' => ''] + $parent_objects, null, $this->html_attributes) . PHP_EOL;
+        $this->column_html .= Form::select($this->column . '[]', ['' => ''] + $parent_objects, $selected, $this->html_attributes) . PHP_EOL;
         $this->column_html .= $has_error ? $this->errors->first($this->column, '<span class="help-block">:message</span>') : '';
         $this->column_html .= '</div>' . PHP_EOL;
 
