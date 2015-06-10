@@ -1,23 +1,23 @@
 {
-  "name": "wislem/scaffenger",
-  "require": {
-    "php": ">=5.4.0",
-    "illuminate/support": ">=5.0.0",
-    "laravelcollective/html": "~5.0",
-    "caffeinated/shinobi": "~1.0@dev",
-    "folklore/image": "0.2.*"
-  },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Peter Lazaridis",
-      "email": "peter.lazaridis@gmail.com"
-    }
-  ],
-  "autoload":    {
-    "psr-4":    {
-      "Wislem\\Scaffenger\\": "src"
-    }
-  },
-  "minimum-stability": "stable"
+    "name": "wislem/scaffenger",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": ">=5.1.0",
+        "laravelcollective/html": "~5.0",
+        "caffeinated/shinobi": "~1.0@dev",
+        "folklore/image": "0.2.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Lazaridis",
+            "email": "peter.lazaridis@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wislem\\Scaffenger\\": "src"
+        }
+    },
+    "minimum-stability": "stable"
 }

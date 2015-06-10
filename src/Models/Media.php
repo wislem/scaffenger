@@ -2,25 +2,25 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Media extends Model {
+class Media extends Model
+{
 
-	protected $table = 'media';
+    protected $table = 'media';
 
-  protected $fillable = ['name', 'path', 'is_active', 'ordr'];
+    protected $fillable = ['name', 'path', 'is_active', 'ordr'];
 
-	public static function boot()
-	{
-		parent::boot();
-
-    static::deleting(function($medium)
+    public static function boot()
     {
-			\File::delete($medium->path);
-    });
-	}
+        parent::boot();
 
-	public function mediable()
-	{
-		return $this->morphTo();
-	}
+        static::deleting(function ($medium) {
+            \File::delete($medium->path);
+        });
+    }
+
+    public function mediable()
+    {
+        return $this->morphTo();
+    }
 
 }

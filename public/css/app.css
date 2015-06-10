@@ -72,7 +72,7 @@
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: #fff;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-nav li a:active,
@@ -96,15 +96,15 @@
 }
 
 .form-sidebar {
-  margin-top:26px;
+  margin-top: 26px;
 }
 
 .editable {
-  outline:none;
+  outline: none;
 }
 
 .no-margin {
-  margin:0 !important;
+  margin: 0 !important;
 }
 
 /* Sidebar Navigation */
@@ -243,7 +243,7 @@
   background-color: #454e59;
 }
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
   #wrapper {
     padding-left: 250px;
   }
@@ -272,5 +272,5 @@
 }
 
 label.csscheckbox {
-  margin-bottom:0
+  margin-bottom: 0
 }
