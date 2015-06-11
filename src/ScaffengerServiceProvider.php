@@ -2,6 +2,7 @@
 
 use Config;
 use Auth;
+use View;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +14,7 @@ class ScaffengerServiceProvider extends ServiceProvider
 
     public function boot()
     {
-
+        View::addNamespace('scaffenger', app_path().'/../resources/views/vendor/scaffenger');
     }
 
     /**
