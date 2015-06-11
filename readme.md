@@ -45,14 +45,14 @@ Add the ServiceProvider to your `config/app.php` file:
 'Wislem\Scaffenger\ScaffengerServiceProvider',
 ```
 
-In the User class, add the ShinobiTrait:
+In the User class, add the TrustyTrait:
 
 ```php
-use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Pingpong\Trusty\Traits\TrustyTrait;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword, ShinobiTrait;
+	use Authenticatable, CanResetPassword, TrustyTrait;
 	
 	// ...
 }
