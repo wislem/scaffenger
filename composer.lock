@@ -4,64 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b406a55bad216b469230a2d9f7c0cd78",
+    "hash": "edc9917e3fe039e06caffcd13cd8ae11",
     "packages": [
-        {
-            "name": "caffeinated/shinobi",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caffeinated/shinobi.git",
-                "reference": "3e857dbf49cd03a28e671aedcbb63bff0a10203e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caffeinated/shinobi/zipball/3e857dbf49cd03a28e671aedcbb63bff0a10203e",
-                "reference": "3e857dbf49cd03a28e671aedcbb63bff0a10203e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": ">=5.0.0",
-                "illuminate/database": ">=5.0.0",
-                "illuminate/filesystem": ">=5.0.0",
-                "illuminate/support": ">=5.0.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Caffeinated\\Shinobi": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shea Lewis",
-                    "email": "shea.lewis89@gmail.com"
-                }
-            ],
-            "description": "Laravel 5 Roles and Permissions",
-            "keywords": [
-                "auth",
-                "caffeinated",
-                "laravel",
-                "permissions",
-                "roles",
-                "shinobi"
-            ],
-            "time": "2015-03-16 17:32:59"
-        },
         {
             "name": "danielstjules/stringy",
             "version": "1.9.0",
@@ -248,24 +192,29 @@
             "time": "2015-04-11 18:12:50"
         },
         {
-            "name": "illuminate/config",
+            "name": "illuminate/auth",
             "version": "v5.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/config.git",
-                "reference": "91698380fe016ae2636e966ce3361e50c276c0f6"
+                "url": "https://github.com/illuminate/auth.git",
+                "reference": "45d44d1d0f8a1a825d165cc9d8ad7ed39e638a48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/config/zipball/91698380fe016ae2636e966ce3361e50c276c0f6",
-                "reference": "91698380fe016ae2636e966ce3361e50c276c0f6",
+                "url": "https://api.github.com/repos/illuminate/auth/zipball/45d44d1d0f8a1a825d165cc9d8ad7ed39e638a48",
+                "reference": "45d44d1d0f8a1a825d165cc9d8ad7ed39e638a48",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "5.1.*",
-                "illuminate/filesystem": "5.1.*",
+                "illuminate/http": "5.1.*",
+                "illuminate/session": "5.1.*",
                 "illuminate/support": "5.1.*",
+                "nesbot/carbon": "~1.19",
                 "php": ">=5.5.9"
+            },
+            "suggest": {
+                "illuminate/console": "Required to use the auth:clear-resets command (5.1.*)."
             },
             "type": "library",
             "extra": {
@@ -275,7 +224,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Illuminate\\Config\\": ""
+                    "Illuminate\\Auth\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -288,9 +237,9 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "description": "The Illuminate Config package.",
+            "description": "The Illuminate Auth package.",
             "homepage": "http://laravel.com",
-            "time": "2015-06-01 15:39:11"
+            "time": "2015-06-08 19:12:16"
         },
         {
             "name": "illuminate/container",
@@ -435,56 +384,6 @@
                 "sql"
             ],
             "time": "2015-06-08 19:09:53"
-        },
-        {
-            "name": "illuminate/filesystem",
-            "version": "v5.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "aaf040662af1bbd95c243465aabc7a64fae4c5fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/aaf040662af1bbd95c243465aabc7a64fae4c5fa",
-                "reference": "aaf040662af1bbd95c243465aabc7a64fae4c5fa",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.1.*",
-                "illuminate/support": "5.1.*",
-                "php": ">=5.5.9",
-                "symfony/finder": "2.7.*"
-            },
-            "suggest": {
-                "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
-                "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
-                "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Filesystem\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "The Illuminate Filesystem package.",
-            "homepage": "http://laravel.com",
-            "time": "2015-06-02 18:26:39"
         },
         {
             "name": "illuminate/http",
@@ -891,6 +790,56 @@
                 "time"
             ],
             "time": "2015-05-09 03:23:44"
+        },
+        {
+            "name": "pingpong/trusty",
+            "version": "2.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pingpong-labs/trusty.git",
+                "reference": "65169f886d0731f6ed1f87692e71eca2b6ea3ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pingpong-labs/trusty/zipball/65169f886d0731f6ed1f87692e71eca2b6ea3ccd",
+                "reference": "65169f886d0731f6ed1f87692e71eca2b6ea3ccd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "5.1.*@dev",
+                "illuminate/database": "5.1.*@dev",
+                "illuminate/routing": "5.1.*@dev",
+                "illuminate/support": "5.1.*@dev",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pingpong\\Trusty\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pingpong Labs",
+                    "email": "pingpong.labs@gmail.com"
+                }
+            ],
+            "description": "Roles and Permissions for Laravel 4",
+            "keywords": [
+                "laravel",
+                "permissions",
+                "pingpong",
+                "roles"
+            ],
+            "time": "2015-06-05 09:49:29"
         },
         {
             "name": "psr/log",
@@ -1367,12 +1316,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "caffeinated/shinobi": 20
+        "pingpong/trusty": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.5.9"
     },
     "platform-dev": []
 }

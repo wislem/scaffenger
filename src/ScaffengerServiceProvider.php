@@ -25,7 +25,7 @@ class ScaffengerServiceProvider extends ServiceProvider
 
         //Register dependencies
         $this->app->register('Collective\Html\HtmlServiceProvider');
-        $this->app->register('Caffeinated\Shinobi\ShinobiServiceProvider');
+        $this->app->register('Pingpong\Trusty\TrustyServiceProvider');
         $this->app->register('Folklore\Image\ImageServiceProvider');
 
         //Register aliases

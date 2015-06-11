@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use \Caffeinated\Shinobi\Models\Permission;
+use Pingpong\Trusty\Permission;
 
 class PermissionTableSeeder extends Seeder
 {
