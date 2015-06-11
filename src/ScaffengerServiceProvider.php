@@ -66,7 +66,7 @@ class ScaffengerServiceProvider extends ServiceProvider
             $menu = Config::get('scaffenger.config.menu');
             $roles = Auth::user()->getRoles();
 
-            if (in_array('admin', $roles)) {
+            if (Auth::user()->is('admin')) {
                 $final_menu = $menu;
             } else {
                 $final_menu = [];
