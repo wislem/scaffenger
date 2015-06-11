@@ -105,7 +105,10 @@ Migrate and seed:
 ```bash
 php artisan migrate
 php artisan db:seed
+composer dump-autoload
 ```
+
+That last command is so that Scaff's seeders will be autoloaded.
 
 #### Result of the above actions
 
