@@ -50,7 +50,7 @@ class FormHtml
         $fc = $this->column_config['relationship']['fc'];
         $fm = $this->column_config['relationship']['fm'];
 
-        $parent_objects = $fm::orderBy($fc, 'ASC')->lists($fc, 'id');
+        $parent_objects = $fm::orderBy($fc, 'ASC')->lists($fc, 'id')->all();
 
         $this->column_html = '<div class="form-group' . ($has_error ? ' has-error' : '') . '">' . PHP_EOL;
         $this->column_html .= Form::label($this->column, $this->column_config['label']) . PHP_EOL;
@@ -68,9 +68,16 @@ class FormHtml
         $fc = $this->column_config['relationship']['fc'];
         $fm = $this->column_config['relationship']['fm'];
 
-        $parent_objects = $fm::orderBy($fc, 'ASC')->lists($fc, 'id');
+        $parent_objects = $fm::orderBy($fc, 'ASC')->lists($fc, 'id')->all();
 
-        $selected = $model::$this->column()->lists('id')->all();
+        $column = $this->column;
+
+        if($id = Form::getValueAttribute('id')) {
+            $foreign_config = \Config::get('scaffenger.tables.'.$column);
+            $selected = $model::find($id)->$column()->lists($foreign_config['singular'].'_id')->all();
+        }else {
+            $selected = null;
+        }
 
         $this->html_attributes += ['multiple' => ''];
 

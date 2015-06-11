@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Permissions',               //used for UI
-    'model' => 'Caffeinated\Shinobi\Models\Permission',                //Model name
+    'model' => 'Pingpong\Trusty\Permission',                //Model name
     'singular' => 'permission',             //Singular and lowercase of model name
     'has_media' => false,             //Supports media? Set it to true
     'use_form_columns' => true,        //true|false Split form fields in 2 columns?

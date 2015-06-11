@@ -28,7 +28,7 @@ return [
             'label' => 'Roles',
             'relationship' => [
                 'type' => 'belongsToMany',
-                'fm' => 'Caffeinated\Shinobi\Models\Role',
+                'fm' => 'Pingpong\Trusty\Role',
                 'fc' => 'name'
             ],
             'attributes' => [

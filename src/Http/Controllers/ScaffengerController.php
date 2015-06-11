@@ -47,7 +47,7 @@ class ScaffengerController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
-            if (!Auth::user()->can('access.admin')) {
+            if (!Auth::user()->can('access_admin')) {
                 return redirect('admin/login')
                     ->withErrors(['generic' => 'You do not have permission to enter.']);
             }

@@ -12,7 +12,7 @@ class PermissionTableSeeder extends Seeder
 
         Permission::create([
             'name' => 'Access Administration area',
-            'slug' => 'access.admin',
+            'slug' => 'access_admin',
             'description' => ''
         ]);
     }

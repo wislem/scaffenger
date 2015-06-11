@@ -48,11 +48,11 @@ Add the ServiceProvider to your `config/app.php` file:
 In the User class, add the ShinobiTrait:
 
 ```php
-use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Pingpong\Traits\TrustyTrait;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword, ShinobiTrait;
+	use Authenticatable, CanResetPassword, TrustyTrait;
 	
 	// ...
 }
@@ -111,7 +111,7 @@ php artisan db:seed
 
 * DB tables:
 	`users`, `password_resets` (default Laravel migration)
-	`permissions`, `roles`, `permission_role`, `role_user` (Caffeinated\Shinobi migrations)
+	`permissions`, `roles`, `permission_role`, `role_user` (Pingpong\Trusty migrations)
 	`media`, `tests` (Scaffenger's migrations)
 * Seeds
 	* Roles

@@ -11,6 +11,11 @@ class ScaffengerServiceProvider extends ServiceProvider
 
     const VERSION = '2.0.0';
 
+    public function boot()
+    {
+
+    }
+
     /**
      * Register the service provider.
      *
@@ -18,6 +23,8 @@ class ScaffengerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // require __DIR__ . '/../vendor/autoload.php';
+
         //Share with app
         $this->app['scaffenger'] = $this->app->share(function () {
             return true;
@@ -31,6 +38,7 @@ class ScaffengerServiceProvider extends ServiceProvider
         //Register aliases
         $loader = AliasLoader::getInstance();
         $loader->alias('ScaffengerHelper', 'Wislem\Scaffenger\Helpers\ScaffengerHelper');
+        $loader->alias('Column', 'Wislem\Scaffenger\Helpers\Column');
         $loader->alias('Form', 'Collective\Html\FormFacade');
         $loader->alias('HTML', 'Collective\Html\HtmlFacade');
         $loader->alias('Image', 'Folklore\Image\Facades\Image');
