@@ -4,7 +4,7 @@
         "php": ">=5.5.9",
         "illuminate/support": ">=5.1.0",
         "laravelcollective/html": "~5.0",
-        "pingpong/trusty": "2.1",
+        "pingpong/trusty": "2.1.*@dev",
         "folklore/image": "0.2.*"
     },
     "license": "MIT",
@@ -19,5 +19,5 @@
             "Wislem\\Scaffenger\\": "src"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
