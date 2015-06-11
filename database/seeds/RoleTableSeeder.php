@@ -15,7 +15,7 @@ class RoleTableSeeder extends Seeder
             'slug' => 'admin',
             'description' => 'Administrators that have full access'
         ]);
-        $admin_role->assignPermission(1);
+        $admin_role->addPermission(1);
         $admin_role->save();
 
         $mod_role = Role::create([
@@ -23,7 +23,7 @@ class RoleTableSeeder extends Seeder
             'slug' => 'mod',
             'description' => 'Moderators that have limited access to Administration area'
         ]);
-        $mod_role->assignPermission(1);
+        $mod_role->addPermission(1);
         $mod_role->save();
 
         $user_role = Role::create([

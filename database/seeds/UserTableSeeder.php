@@ -21,7 +21,7 @@ class UserTableSeeder extends Seeder
 
         $user->save();
 
-        $user->assignRole(1);
+        $user->addRole(1);
         $user->save();
     }
 
