@@ -30,8 +30,6 @@ class ScaffengerServiceProvider extends ServiceProvider
 
         //Register aliases
         $loader = AliasLoader::getInstance();
-        $loader->alias('Column', 'Wislem\Scaffenger\Helpers\Column');
-        $loader->alias('CHTML', 'Wislem\Scaffenger\Helpers\HTML');
         $loader->alias('ScaffengerHelper', 'Wislem\Scaffenger\Helpers\ScaffengerHelper');
         $loader->alias('Form', 'Collective\Html\FormFacade');
         $loader->alias('HTML', 'Collective\Html\HtmlFacade');
@@ -64,7 +62,6 @@ class ScaffengerServiceProvider extends ServiceProvider
         $this->app['view']->composer('scaffenger::partials.sidebar', function ($view) {
             //Clear up the menu according to user role
             $menu = Config::get('scaffenger.config.menu');
-            $roles = Auth::user()->getRoles();
 
             if (Auth::user()->is('admin')) {
                 $final_menu = $menu;
