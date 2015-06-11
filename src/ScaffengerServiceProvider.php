@@ -44,7 +44,7 @@ class ScaffengerServiceProvider extends ServiceProvider
         $loader->alias('Image', 'Folklore\Image\Facades\Image');
 
         //Publish views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffenger');
+        //$this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffenger');
 
         //Seed classes (add them to your app's DatabaseSeeder class
 
@@ -55,6 +55,7 @@ class ScaffengerServiceProvider extends ServiceProvider
             __DIR__ . '/../database/seeds' => app_path() . '/../database/seeds',
             __DIR__ . '/../database/migrations' => app_path() . '/../database/migrations',
             __DIR__ . '/../public' => public_path() . '/vendor/wislem/scaffenger',
+            __DIR__ . '/../resources/views' => app_path() . '/../resources/views/vendor/scaffenger'
             //__DIR__.'/../resources/views' => app_path().'/../resources/views/scaffenger'
         ], 'scaffenger');
 
