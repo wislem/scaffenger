@@ -350,7 +350,9 @@ class ScaffengerController extends Controller
                         break;
 
                     case 'password':
-                        $user = User::find($id);
+                        // A bit hackish, I know...
+                        $user_model = Config::get('scaffenger.tables.users.model');
+                        $user = $user_model::find($id);
                         if ($request->get($column) != '' and $user->password != $request->get($column)) {
                             $user->password = bcrypt($request->get($column));
                             $user->save();
