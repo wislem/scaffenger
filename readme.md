@@ -61,7 +61,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 ### Step 2: Publish
 
 ```bash
-php artisan vendor:publish --tag=scaffenger --force
+php artisan vendor:publish
 ```
 
 #### This will publish the following:
@@ -70,6 +70,7 @@ php artisan vendor:publish --tag=scaffenger --force
 * Migrations
 * Seeds
 * Assets
+* Views
 
 ### Step 3: Run migrations and seeds
 
