@@ -1,4 +1,4 @@
-Scaffenger for Laravel 5
+Scaffenger for Laravel 5.1
 ========================
 
 A scaffolding generator for any database setup ;)
